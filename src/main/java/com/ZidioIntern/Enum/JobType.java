@@ -1,0 +1,5 @@
+package com.ZidioIntern.Enum;
+
+public enum JobType {
+	INTERNSHIP, EXPERIENCED, FULLTIME, PARTTIME, REMOTE, FREELANCING, CONTRACTUAL;
+}
