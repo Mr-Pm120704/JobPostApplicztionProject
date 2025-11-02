@@ -3,6 +3,8 @@ package com.ZidioIntern.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,5 +47,17 @@ public class DashBoardController {
 	public ResponseEntity<SubscriptionStatusDTO>getSubscriptionStatus(){
 		return ResponseEntity.ok(dashBoardService.fetchSubscriptionStatus());
 	}
+	
+	@PostMapping("/users/{userId}/block")
+    public ResponseEntity<String> blockUser(@PathVariable Long userId) {
+        dashBoardService.blockUser(userId);
+        return ResponseEntity.ok("User blocked successfully");
+    }
+
+    @PostMapping("/users/{userId}/unblock")
+    public ResponseEntity<String> unblockUser(@PathVariable Long userId) {
+        dashBoardService.unblockUser(userId);
+        return ResponseEntity.ok("User unblocked successfully");
+    }
 	
 }

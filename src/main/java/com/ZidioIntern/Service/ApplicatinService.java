@@ -77,5 +77,9 @@ public class ApplicatinService {
 		
 		return dto;
 	}
+	
+    public List<Application> getApplicationsByRecruiterEmail(String recruiterEmail) {
+        return applicationRepo.findByRecruiterEmail(recruiterEmail);
+    }
 
 }

@@ -1,10 +1,14 @@
 package com.ZidioIntern.DTO;
 
+import java.util.List;
+
 public class UserStatusDTO {
 	public int totalJobseekers;
 	public int totalRecruiters;
 	public int totalBlockUsers;
 	public int totalPaidUsers;
+	private List<UserDTO> users;
+	
 	public int getTotalJobseekers() {
 		return totalJobseekers;
 	}
@@ -29,7 +33,12 @@ public class UserStatusDTO {
 	public void setTotalPaidUsers(int totalPaidUsers) {
 		this.totalPaidUsers = totalPaidUsers;
 	}
-	
+    public List<UserDTO> getUsers() {
+        return users;
+    }
+    public void setUsers(List<UserDTO> users) {
+        this.users = users;
+    }
 	
 //	public UserStatusDTO() {}
 //	public UserStatusDTO(int totalJobseekers,int totalRecruiters,int totalBlockUsers,int totalPaidUsers) {

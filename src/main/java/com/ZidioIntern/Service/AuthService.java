@@ -54,6 +54,21 @@ public class AuthService {
 		 
 	  return jwtUtil.generateToken(user);
     }
+	
+	
+	
+	public UserDTO getUserFromToken(String token) {
+		if (!jwtUtil.validToken(token)) {
+		    throw new RuntimeException("Invalid or expired token");
+		}
+
+	    String email = jwtUtil.extractUserEmail(token); 
+	    return userRepository.findByUserEmail(email)
+	            .map(UserDTO::fromEntity)
+	            .orElse(null);
+	}
+
+
 
 
 }

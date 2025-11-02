@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ZidioIntern.DTO.ApplicationDTO;
+import com.ZidioIntern.Entity.Application;
 import com.ZidioIntern.Enum.JobType;
 import com.ZidioIntern.Enum.Status;
 import com.ZidioIntern.Service.ApplicatinService;
@@ -57,5 +59,11 @@ public class ApplicationController {
 		appService.updateStatus(id, status);
 		return ResponseEntity.ok("the status is updated");
 	}
+	
+    @GetMapping("/recruiter/{email}")
+    public ResponseEntity<List<Application>> getApplicationsByRecruiterEmail(@PathVariable String email) {
+        List<Application> apps = appService.getApplicationsByRecruiterEmail(email);
+        return ResponseEntity.ok(apps);
+    }
 
 }

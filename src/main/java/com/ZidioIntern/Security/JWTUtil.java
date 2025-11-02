@@ -24,7 +24,7 @@ public class JWTUtil {
                 .compact();
     }
 
-    public String extractUserName(String token) {
+    public String extractUserEmail(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(secretKey)   // ✅ parserBuilder instead of parser()
                 .build()

@@ -1,0 +1,4 @@
+/* helper input class used in components */
+.input {
+  @apply border border-slate-200 rounded-lg px-3 py-2 bg-white;
+}
